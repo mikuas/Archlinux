@@ -174,6 +174,22 @@ GLFW_IM_MODULE=ibus
 
 ---
 
+### 添加Windows启动引导
+* 查看Windows引导分区的UUID
+
+    `sudo fdisk -l`
+* 获取UUID
+
+    `sudo blkid /dev/disk_num`
+* 编辑/boot/grub/grub.cfg
+
+    `menuentry 'Name'`{ \
+        `insmod part_gpt` \
+        `insmod fat` \
+        `insmod chain` \
+        `search --fs-uuid --no-floppy --set=root UUID` \
+        `chainloader (${root})/EFI/Micorsoft/Boot/bootmgfw.efi` \
+    }
 
 
 ### 安装微信
