@@ -174,6 +174,8 @@ GLFW_IM_MODULE=ibus
 
 ---
 
+
+
 ### 安装微信
 >yay -S deepin-wine-wechat | com.qq.weixin.deepin
 
